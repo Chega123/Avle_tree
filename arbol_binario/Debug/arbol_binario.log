@@ -1,0 +1,3 @@
+﻿  arbol_binario.cpp
+C:\Users\diego\source\repos\arbol_binario\arbol_binario\arbol_binario.cpp(240): warning C4715: 'CBinTree::Insert': no todas las rutas de acceso de control devuelven un valor
+  arbol_binario.vcxproj -> C:\Users\diego\source\repos\arbol_binario\Debug\arbol_binario.exe

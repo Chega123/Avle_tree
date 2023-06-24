@@ -1,0 +1,47 @@
+﻿  arbol_binario.cpp
+C:\Users\diego\source\repos\arbol_binario\arbol_binario\arbol_binario.cpp(624,27): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\diego\source\repos\arbol_binario\arbol_binario\arbol_binario.cpp(624,24): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\diego\source\repos\arbol_binario\arbol_binario\arbol_binario.cpp(628,31): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\diego\source\repos\arbol_binario\arbol_binario\arbol_binario.cpp(628,24): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\diego\source\repos\arbol_binario\arbol_binario\arbol_binario.cpp(639,40): warning C4244: 'argumento': conversión de 'int' a 'T'; posible pérdida de datos
+          with
+          [
+              T=float
+          ]
+C:\Users\diego\source\repos\arbol_binario\arbol_binario\arbol_binario.cpp(639,37): warning C4244: 'argumento': conversión de 'int' a 'T'; posible pérdida de datos
+          with
+          [
+              T=float
+          ]
+C:\Users\diego\source\repos\arbol_binario\arbol_binario\arbol_binario.cpp(640,60): warning C4244: 'argumento': conversión de 'int' a 'T'; posible pérdida de datos
+          with
+          [
+              T=float
+          ]
+C:\Users\diego\source\repos\arbol_binario\arbol_binario\arbol_binario.cpp(640,39): warning C4244: 'argumento': conversión de 'int' a 'T'; posible pérdida de datos
+          with
+          [
+              T=float
+          ]
+C:\Users\diego\source\repos\arbol_binario\arbol_binario\arbol_binario.cpp(648,40): warning C4244: 'argumento': conversión de 'int' a 'T'; posible pérdida de datos
+          with
+          [
+              T=float
+          ]
+C:\Users\diego\source\repos\arbol_binario\arbol_binario\arbol_binario.cpp(648,37): warning C4244: 'argumento': conversión de 'int' a 'T'; posible pérdida de datos
+          with
+          [
+              T=float
+          ]
+C:\Users\diego\source\repos\arbol_binario\arbol_binario\arbol_binario.cpp(649,60): warning C4244: 'argumento': conversión de 'int' a 'T'; posible pérdida de datos
+          with
+          [
+              T=float
+          ]
+C:\Users\diego\source\repos\arbol_binario\arbol_binario\arbol_binario.cpp(649,39): warning C4244: 'argumento': conversión de 'int' a 'T'; posible pérdida de datos
+          with
+          [
+              T=float
+          ]
+C:\Users\diego\source\repos\arbol_binario\arbol_binario\arbol_binario.cpp(245): warning C4715: 'CBinTree::Insert': no todas las rutas de acceso de control devuelven un valor
+  arbol_binario.vcxproj -> C:\Users\diego\source\repos\arbol_binario\x64\Debug\arbol_binario.exe
