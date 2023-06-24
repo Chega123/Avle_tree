@@ -1,4 +1,5 @@
 #include <iostream>
+>
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
 #include <SFML/System.hpp>
@@ -118,7 +119,9 @@ public:
     ~CBinTree();
     bool Insert(int x);
     bool Remove(int x);
-    void Print(sf::RenderWindow& window, sf::Font font);
+    void Print();
+    void printTree(int x, int y, CBinNode* node, int index, sf::RenderWindow& window, sf::Font font);
+    CBinNode* root;
 private:
     bool Find(int x, CBinNode**& p, Stack& arr);
     bool Find_del(int x, CBinNode**& p, Stack& arr);
@@ -135,10 +138,10 @@ private:
     void Arboldraw(CBinNode* x);
     void AVL(CBinNode* A, CBinNode* B, CBinNode* C, nodofila*D);
     void ver_AVL(CBinNode* x, CBinNode** p, CBinNode*** a, CBinNode**** D);
-    CBinNode* root;
+    //CBinNode* root;
     bool brep;
     Stack pila;
-    void printTree(int x, int y, CBinNode* node, int index, sf::RenderWindow& window, sf::Font font);
+    
 };
 
 CBinTree::CBinTree()
@@ -284,7 +287,7 @@ bool CBinTree::Remove(int x)
 
     if ((*p)->nodes[0] && (*p)->nodes[1]) // Caso 2
     {
-        CBinNode** q = Rep(p); // CorrecciÛn: Pasar la direcciÛn de p a Rep
+        CBinNode** q = Rep(p); // Correcci√≥n: Pasar la direcci√≥n de p a Rep
         (*p)->value = (*q)->value;
         p = q;
     }
@@ -599,7 +602,7 @@ int CBinTree::Profundidad(CBinNode* x) {
 
 
 
-void CBinTree::Print( sf::RenderWindow& window, sf::Font font)
+void CBinTree::Print()
 {
     CBinNode** padre=nullptr;
     //Profundidad(root);
@@ -609,9 +612,9 @@ void CBinTree::Print( sf::RenderWindow& window, sf::Font font)
    //Arboldraw(root);
    //PreOrder(root); ENDL;
    //Inverse(root); ENDL;
-   printTree(400, 50, root, 1, window, font);
-   //InOrder_manual(root);
-   //print2D(root);
+  // printTree(400, 50, root, 1, window, font);
+   InOrder_manual(root);
+   print2D(root);
 }
 
 void CBinTree::printTree(int x, int y, CBinNode* node, int index, sf::RenderWindow& window, sf::Font font)
@@ -619,25 +622,25 @@ void CBinTree::printTree(int x, int y, CBinNode* node, int index, sf::RenderWind
     if (!node)
         return;
 
-    sf::CircleShape circle(8);
+    sf::CircleShape circle(15);
     circle.setFillColor(sf::Color(0, 255, 0)); 
-    circle.setPosition(x, y);
+    circle.setPosition(x-15, y-3);
     sf::Text text(std::to_string(node->value), font);
-    text.setCharacterSize(14);
+    text.setCharacterSize(15);
     text.setFillColor(sf::Color::White);
-    text.setPosition(x - 2, y - 3);
+    text.setPosition(x , y);
 
-    int left = 2 * index + 1;
-    int right = 2 * index + 2;
+    int left = 2 * index + 50;
+    int right = 2 * index + 100;
 
-    printTree(x - y / (index + 1), y + 50, node->nodes[0], left, window,font);
-    printTree(x + y / (index + 1), y + 50, node->nodes[1], right, window, font);
+    printTree((x - y / (index + 1)-20), y + 70, node->nodes[0], left, window,font);
+    printTree((x + y / (index + 1)+40), y + 70, node->nodes[1], right, window, font);
 
     if (node->nodes[0] != 0) {
         sf::Vertex line1[] =
         {
             sf::Vertex(sf::Vector2f(x, y)),
-            sf::Vertex(sf::Vector2f(x - y / (index + 1), y + 50))
+            sf::Vertex(sf::Vector2f((x - y / (index + 1))-20, y + 70))
         };
         window.draw(line1, 2, sf::Lines);
     }
@@ -646,7 +649,7 @@ void CBinTree::printTree(int x, int y, CBinNode* node, int index, sf::RenderWind
         sf::Vertex line2[] =
         {
             sf::Vertex(sf::Vector2f(x, y)),
-            sf::Vertex(sf::Vector2f(x + y / (index + 1), y + 50))
+            sf::Vertex(sf::Vector2f((x + y / (index + 1))+40, y + 70))
         };
         window.draw(line2, 2, sf::Lines);
     }
@@ -660,12 +663,14 @@ void CBinTree::printTree(int x, int y, CBinNode* node, int index, sf::RenderWind
 int main()
 {
     // Crear una ventana de SFML
-    sf::RenderWindow window(sf::VideoMode(800, 600), "Mi ¡rbol Binario");
+    sf::RenderWindow window(sf::VideoMode(800, 600), "Mi √Årbol Binario");
 
     // Cargar una fuente
     sf::Font font;
-    font.loadFromFile("Fonts/Metropolian-Display.ttf");
+    if (!font.loadFromFile("arial.ttf"))
+        return EXIT_FAILURE;
     
+     
 
     CBinTree t;
     t.Insert(50);
@@ -695,12 +700,15 @@ int main()
 
         window.clear();
 
-        // Llamar a la funciÛn printTree
-        t.Print(window, font);
+        // Llamar a la funci√≥n printTree
+        //t.Print();
+        t.printTree(400, 50, t.root, 1, window, font);
+        //t.Print(window, font);
 
         window.display();
     }
 
     return 0;
 }
+
 
